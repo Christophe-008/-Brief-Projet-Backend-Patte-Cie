@@ -27,7 +27,7 @@ Objectifs :
 # 🐱 Contexte
 
 La clinique vétérinaire **Patte & Cie** dispose désormais de maquettes et de prototypes Front.  
-Mais les données actuelles reposent sur des fichiers JSON statiques…
+Mais les données actuelles reposent sur des fichiers JSON statiques et aucune relance automatique n’est faite pour les vaccins à renouveler…
 
 > “Nous voulons un vrai backend, une vraie base de données, et une API stable accessible partout !”
 
@@ -41,8 +41,9 @@ Votre mission : créer le **carnet de santé numérique backend**.
 
 ### ✔ MLD – Modèle Logique de Données
 
+- Chaque apprenant arrive avec son MCD déjà conçu : le duo échange et fusionne les meilleures idées pour produire un modèle commun
 - Conversion fidèle du MCD du projet précédent
-- Normalisation (jusqu’en 3FN, troisième forme normale)
+- Normalisation
 - Types et attributs pertinents
 
 ### ✔ MPD – Modèle Physique PostgreSQL
@@ -101,6 +102,7 @@ Chaque duo doit :
 - `src/repositories/` ou accès ORM (Prisma) pour la base
 - `prisma/schema.prisma` (si Prisma) ou migrations SQL versionnées
 - Tests dans `tests/` (Jest ou Vitest) et scripts npm associés
+- `src/jobs/` pour les tâches planifiées (ex. [`node-cron`](https://www.npmjs.com/package/node-cron) ou Render Cron Jobs) dédiées aux relances vaccins
 
 ### Fonctionnalités attendues
 
@@ -109,6 +111,7 @@ Chaque duo doit :
 - Filtrage/pagination sur les listes critiques
 - Gestion des erreurs centralisée (middlewares)
 - Authentification simple (token, clé API ou autre solution validée) si besoin selon les données sensibles
+- Tâche planifiée (cron ou équivalent) pour préparer et envoyer les relances de vaccins à l’approche des échéances (email, notification ou webhook)
 
 ---
 
@@ -123,14 +126,14 @@ Chaque duo doit :
 
 ## 6. 🔗 Intégration avec deux projets Front
 
-- Choisir deux projets Front réalisés par d’autres apprenants (liste fournie par la promo)
-- Partager votre documentation API et coordonner les champs attendus
-- Réaliser au moins une démonstration de bout en bout par projet (capture vidéo ou courte présentation)
-- Documenter les ajustements nécessaires côté Front (issues, PR ou notes)
+- Deux projets Front réalisés par d’autres apprenants vous seront attribués aléatoirement
+- Forker ou dupliquer ces fronts et intégrer vous-mêmes l’API (pas de coordination nécessaire avec l’équipe d’origine)
+- Adapter les services/pages pour consommer votre backend et valider l’UX
+- Documenter les ajustements réalisés côté Front (issues, PR ou notes) et fournir une démonstration de bout en bout
 
 ---
 
-## 7. ✅ Qualité & Tests
+## 7. ✅ Qualité & Tests (BONUS)
 
 - Linters/formatters configurés (`eslint`, `prettier`, etc.)
 - Tests unitaires et/ou d’intégration sur les endpoints critiques
@@ -140,7 +143,7 @@ Chaque duo doit :
 
 ---
 
-## 8. 📝 Documentation & Handoff
+## 8. 📝 Documentation
 
 - README racine détaillé (setup local, scripts, env, stratégie de déploiement)
 - Documentation API (Swagger/OpenAPI, Postman Collection ou Markdown clair)
@@ -151,10 +154,9 @@ Chaque duo doit :
 
 ## 9. 🤝 Organisation & Planning en duo
 
-- Répartition des rôles (ex. lead backend / lead data, puis rotation)
 - Daily courte (15 min) pour suivre l’avancement
-- Kanban ou board Notion/Trello partagé avec les tâches
-- Point de synchronisation avec les porteurs des projets Front à J+3 et J+7
+- GitHub Projects détaillé (colonnes backlog → en cours → en revue → terminé) avec issues liées, estimations et checklists de sous-tâches
+- Point de suivi interne (J+3 et J+7) sur l’avancement des deux intégrations Front prises en charge par l’équipe backend
 - Rétrospective finale (forces, axes d’amélioration, feedback croisé)
 
 ---
