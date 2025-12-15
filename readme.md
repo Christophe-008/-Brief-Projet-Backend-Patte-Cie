@@ -41,13 +41,15 @@ Votre mission : créer le **carnet de santé numérique backend**.
 
 ### ✔ MLD – Modèle Logique de Données
 
-- Chaque apprenant arrive avec son MCD déjà conçu : le duo échange et fusionne les meilleures idées pour produire un modèle commun
-- Conversion fidèle du MCD du projet précédent
-- Normalisation
-- Types et attributs pertinents
+- Chaque apprenant arrive avec son **MCD** (Modèle Conceptuel de Données) déjà conçu : le duo fusionne ensuite les meilleures idées pour produire un modèle commun
+- Conversion du MCD vers un **MLD** minimal : on supprime verbes/cardinalités, on ne conserve que les entités renommées en tables
+- Ajout uniquement des clés primaires (PK) et étrangères (FK) nécessaires pour travailler la future base
+- Création d’éventuelles tables d’association pour gérer les relations many-to-many
+- Normalisation pour éviter redondances/incohérences
 
 ### ✔ MPD – Modèle Physique PostgreSQL
 
+- Traduction du MLD en **MPD** ciblé PostgreSQL, avec choix précis des attributs et de leurs contraintes
 - Types SQL adaptés (UUID recommandé)
 - Contraintes :
   - Clés primaires / étrangères
